@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "node .output/server/index.mjs"
+  },
+  "devDependencies": {
+    "@telenko/node-mf": "^0.0.5",
+    "nuxt3": "latest",
+    "webpack": "^5.59.1"
+  }
+}

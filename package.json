@@ -1,0 +1,7 @@
+{
+  "name": "nuxt3-module-federation-async-reproduction",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}

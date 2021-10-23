@@ -1,0 +1,42 @@
+{
+  "name": "remote",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vue-cli-service build --dest dist/client",
+    "build:server": "cross-env SSR=true vue-cli-service build --dest dist/server",
+    "start": "serve dist -p 3101",
+    "lint": "vue-cli-service lint",
+    "inspect": "cross-env SSR=true vue inspect --mode production > inspect.js"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@telenko/node-mf": "^0.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@vue/cli-plugin-babel": "~5.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "~5.0.0-beta.6",
+    "@vue/cli-plugin-typescript": "~5.0.0-beta.6",
+    "@vue/cli-service": "~5.0.0-beta.6",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-standard": "^6.1.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.20.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^7.6.0",
+    "serve": "^12.0.1",
+    "typescript": "~4.1.5",
+    "vue-loader": "https://github.com/phoenix-ru/vue-loader/releases/download/critical-css/vue-loader.tgz",
+    "vue-style-loader": "github:phoenix-ru/vue-style-loader",
+    "webpack": "^5.59.1"
+  }
+}
