@@ -24,8 +24,7 @@ function enableModuleFederation (config, isServer) {
     shared: {
       vue: {
         requiredVersion: dependencies.vue,
-        singleton: true,
-        eager: true
+        singleton: true
       }
     }
   }])
