@@ -22,19 +22,19 @@ export default defineComponent({
 
 <style>
 .app-button {
-  background-color: var(--app-button-color, hsl(200, 75%, 42%));
+  background: var(--app-button-bg, hsl(200, 75%, 42%));
   padding: .5rem 1rem;
-  border-color: transparent;
+  border: none;
   color: white;
   border-radius: .25rem;
   cursor: pointer;
 
-  transition-property: background-color;
+  transition-property: background;
   transition-duration: .2s;
   transition-timing-function: ease;
 }
 
 .app-button:hover {
-  background-color: var(--app-button-color-hover, hsl(200, 75%, 38%));
+  background: var(--app-button-bg-hover, hsl(200, 75%, 38%));
 }
 </style>

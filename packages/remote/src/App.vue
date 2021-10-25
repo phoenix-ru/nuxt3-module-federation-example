@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h1>The application is currently running as Host</h1>
+    <h1>remoteWithButton is currently running as Host</h1>
 
     <app-button class="host-button">
       Hello, host!
@@ -31,7 +31,7 @@ export default defineComponent({
 }
 
 .host-button {
-  --app-button-color: hsl(145, 82%, 35%);
-  --app-button-color-hover: hsl(145, 82%, 30%);
+  --app-button-bg: hsl(145, 82%, 35%);
+  --app-button-bg-hover: hsl(145, 82%, 30%);
 }
 </style>
