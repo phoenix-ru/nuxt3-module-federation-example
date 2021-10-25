@@ -9,10 +9,7 @@ export default defineNuxtConfig({
         remotes: {
           'remoteWithButton': isServer
             ? 'remoteWithButton@http://localhost:3101/server/remoteEntry.js'
-            : 'remoteWithButton@http://localhost:3101/client/remoteEntry.js',
-          footer: isServer
-            ? 'footer@http://localhost:3004/node/remoteEntry.js'
-            : 'footer@http://localhost:3004/web/remoteEntry.js'
+            : 'remoteWithButton@http://localhost:3101/client/remoteEntry.js'
         },
 
         shared: {
