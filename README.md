@@ -1,14 +1,14 @@
 # Nuxt 3 Module Federation example
 
-| :exclamation:  Module Federation does not work on client. It is the purpose of this repository to get it working.   |
+| :fire:  Module Federation support has been implemented!   |
 |-----------------------------------------|
 
-This repository showcases how to use Nuxt 3 with Module Federation. It is also used as a reproduction for `shared module not available for eager consumption: Vue` bug.
+This repository showcases how to use Nuxt 3 with Module Federation. It was also used as a reproduction for `shared module not available for eager consumption: Vue` bug. The bug is now [fixed](https://github.com/nuxt/framework/pull/2223) and you can use the full power of Module Federation on both SSR and CSR.
 
 ## Getting started
 The repository is structured as a Lerna monorepo, where `nuxt3-app` package is for the Nuxt 3 host and `remote` package is for Vue CLI-generated component remote.
 
-In order to get started, you will need Lerna. You can also get it from `devDependecies`:
+In order to get started, you will need Lerna. You can also get it from `devDependencies`:
 ```cmd
 npm i
 ```
