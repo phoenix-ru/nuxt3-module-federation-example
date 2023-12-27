@@ -1,9 +1,11 @@
+const { defineConfig } = require('@vue/cli-service')
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { dependencies } = require('./package.json')
 
 /**
  * Federates the application
- * @param {*} config The chain webpack config
+ * @param {import('webpack-chain')} config The chain webpack config
  */
 function enableModuleFederation (config, isServer) {
   /* Get the needed module federation plugin */
@@ -31,6 +33,9 @@ function enableModuleFederation (config, isServer) {
 
   /* We need special handling for node, but for client the job is done */
   if (!isServer) { return }
+
+  /** Otherwise build fails */
+  config.optimization.splitChunks(false)
 
   /* Interfere with build in order to use HTTP+VM instead of require */
   config.plugin('node-async-http-runtime').use(require('@telenko/node-mf').NodeAsyncHttpRuntime)
@@ -66,13 +71,18 @@ function patchStyles (config) {
 
 /* Server build flag */
 const isServerBuild = process.env.SSR
+const isDevelopment = process.env.NODE_ENV !== 'production'
 
 const basePath = 'http://localhost:3101'
 
-module.exports = {
-  publicPath: isServerBuild
-    ? basePath + '/server'
-    : basePath + '/client',
+module.exports = defineConfig({
+  parallel: false,
+  transpileDependencies: true,
+  publicPath: isDevelopment
+    ? '/'
+    : isServerBuild
+      ? basePath + '/server'
+      : basePath + '/client',
 
   chainWebpack (config) {
     enableModuleFederation(config, isServerBuild)
@@ -88,4 +98,4 @@ module.exports = {
   css: {
     extract: false
   }
-}
+})

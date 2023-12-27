@@ -2,14 +2,20 @@
   "name": "nuxt3-module-federation-async-reproduction",
   "private": true,
   "scripts": {
-    "build": "lerna run build",
-    "start": "lerna run start"
+    "build": "nx run-many -t build",
+    "start": "nx run-many -t start"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^8.0.1",
+    "nx": "17.2.7"
   },
-  "engines": {
-    "node": "^14.0.0 || >=16.0.0",
-    "npm": "^7.0.0 || ^8.0.0"
-  }
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "resolutions": {
+    "vue-style-loader": "github:phoenix-ru/vue-style-loader"
+  },
+  "packageManager": "yarn@4.0.2+sha256.825003a0f561ad09a3b1ac4a3b3ea6207af2796d54f62a9420520915721f5186"
 }

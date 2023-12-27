@@ -16,8 +16,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, defineAsyncComponent } from 'vue'
+<script setup lang="ts">
+import { defineComponent, defineAsyncComponent, ref, onMounted } from 'vue'
 
 // eslint-disable-next-line vue/one-component-per-file
 const Error = defineComponent({
@@ -33,16 +33,10 @@ const RemoteButton = defineAsyncComponent({
   errorComponent: Error
 })
 
-export default defineComponent({
-  components: { RemoteButton },
+const hydratedString = ref('')
 
-  data: () => ({
-    hydratedString: ''
-  }),
-
-  mounted() {
-    this.hydratedString = 'Client hydration successful (that means the Module Federation ticket has been solved 🎉)'
-  }
+onMounted(() => {
+  hydratedString.value = 'Client hydration successful (that means the Module Federation ticket has been solved 🎉)'
 })
 </script>
 

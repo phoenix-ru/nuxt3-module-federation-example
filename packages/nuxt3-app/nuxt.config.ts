@@ -1,7 +1,10 @@
-import { defineNuxtConfig } from 'nuxt3'
-
 export default defineNuxtConfig({
-  buildModules: [
+  devtools: { enabled: false },
+  experimental: {
+    asyncEntry: true
+  },
+
+  modules: [
     ['./modules/build/ModuleFederationModule.ts', {
       federationOptions: (isServer: boolean) => ({
         name: 'nuxthost',

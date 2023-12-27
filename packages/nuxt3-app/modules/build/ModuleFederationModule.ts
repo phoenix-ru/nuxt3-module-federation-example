@@ -1,4 +1,4 @@
-import { defineNuxtModule, ModuleOptions } from '@nuxt/kit'
+import { defineNuxtModule } from 'nuxt/kit'
 import { container } from 'webpack'
 
 // @ts-ignore
@@ -16,14 +16,16 @@ interface ModuleFederationOptions {
   remotes: Record<string, RemoteDefinition>
 }
 
-interface ModuleFederationModuleOptions extends ModuleOptions {
+interface ModuleFederationModuleOptions {
   federationOptions(isServer: boolean): ModuleFederationOptions
 }
 
 let options: ModuleFederationModuleOptions | null = null
 
 export default defineNuxtModule({
-  name: 'ModuleFederationModule',
+  meta: {
+    name: 'ModuleFederationModule'
+  },
 
   setup(resolvedOptions: ModuleFederationModuleOptions, nuxt) {
     // assign to a variable, as nuxt doesn't seem to provide an access to options elsewhere
@@ -35,7 +37,7 @@ export default defineNuxtModule({
     }
 
     /* Vite needs to be disabled */
-    nuxt.options.vite = false
+    nuxt.options.builder = '@nuxt/webpack-builder'
 
     /* Set options if not set manually */
     const nitroOptions = nuxt.options.nitro || {}

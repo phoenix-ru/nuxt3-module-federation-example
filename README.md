@@ -6,29 +6,29 @@
 This repository showcases how to use Nuxt 3 with Module Federation. It was also used as a reproduction for `shared module not available for eager consumption: Vue` bug. The bug is now [fixed](https://github.com/nuxt/framework/pull/2223) and you can use the full power of Module Federation on both SSR and CSR.
 
 ## Getting started
-The repository is structured as a Lerna monorepo, where `nuxt3-app` package is for the Nuxt 3 host and `remote` package is for Vue CLI-generated component remote.
+The repository is structured as a Nx monorepo, where `nuxt3-app` package is for the Nuxt 3 host and `remote` package is for Vue CLI-generated component remote.
 
-In order to get started, you will need Lerna. You can also get it from `devDependencies`:
-```cmd
-npm i
+Please, enable Corepack to use the correct version of Yarn:
+```sh
+corepack enable
 ```
 
-You can quickly install all the package dependencies using
-```cmd
-npx lerna bootstrap
+Install dependencies:
+```sh
+yarn
 ```
 
 ## Building
 In order to build the packages, simply run
-```cmd
-npm run build
+```sh
+yarn build
 ```
 When run on project root, it will build all the packages. When run in `packages/*`, it will build the individual packages.
 
 ## Starting
 To start the Nuxt host and Vue remote, use
-```cmd
-npm start
+```sh
+yarn start
 ```
 
 As with the build command, you can run it either on project root or on individual package root.
@@ -43,8 +43,6 @@ You can navigate to http://localhost:3101/client to see the host version of Vue 
 
 ## Troubleshooting
 
-Please, note that you need to have at least Node.js 14 or 16 and npm version 7.
-
-As Nuxt is currently in beta, the project may unexpectedly break. In that case, try locking its version to 3.0.0-27252573.ad7e755 (modify `packages/nuxt3-app/package.json` by removing ^ in `nuxt3` and reinstalling dependencies). The mentioned version is guaranteed to run.
+Please, note that you need to have at least Node.js 14 and Yarn v4.
 
 If you still cannot get the project running, [file an issue](https://github.com/phoenix-ru/nuxt3-module-federation-example/issues/new) in case you encounter.
