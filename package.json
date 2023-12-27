@@ -6,7 +6,6 @@
     "start": "nx run-many -t start"
   },
   "devDependencies": {
-    "lerna": "^8.0.1",
     "nx": "17.2.7"
   },
   "workspaces": {
